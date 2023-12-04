@@ -1,19 +1,17 @@
-const path = require('path');
+const path = require('path'); // Импортируем модуль "path" для работы с путями файлов
 
 module.exports = {
-    entry: './src/index.ts',
-    mode: "development",
+    entry: './src/index.ts', // Точка входа для сборки проекта
+
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js',
-    },
-    resolve: {
-        extensions: ['.ts']
+        filename: 'index.js', // Имя выходного файла сборки
+        path: path.resolve(__dirname, 'dist'), // Путь для выходного файла сборки
     },
     module: {
-        rules: [{
-            test: /\.ts$/,
-            exclude: /node_modules/,
-            use: ['babel-loader', 'ts-loader'] }],
+        rules: [
+            { test: /\.ts$/, use: ['babel-loader', 'ts-loader'] }
+        ],
+
     },
+    mode: 'development', // Режим сборки
 };
